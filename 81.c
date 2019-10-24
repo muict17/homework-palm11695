@@ -1,35 +1,39 @@
 #include <stdio.h>
+int InputArray(int n)
+{
+    int INPUT;
+    scanf("%d",&INPUT);
+    while(INPUT>=n || INPUT<0)
+    {
+        printf("Reinput : ");
+        scanf("%d",&INPUT);
+    }
+    return INPUT;
+}
+
 int main()
 {
     int n;
     scanf("%d",&n);
-    int Set[n],Counter[n];
+    int Set[n],tempINPUT,max;
     printf("The given array is : \n");
     for(int i=0; i<n; i++)
     {
-        Counter[i]=0;
-        scanf("%d",&Set[i]);
+        Set[i]=0;
     }
     for(int i=0; i<n; i++)
     {
-        for(int j=0; j<n; j++)
-        {
-            if(i!=j && Set[i]==Set[j])
-            {
-                Counter[i]++;
-            }
-        }
+        tempINPUT = InputArray(n);
+        Set[tempINPUT]++;
     }
-    int major=0,PrintOut;
     for(int i=0; i<n; i++)
     {
-        if(major<Counter[i] && Counter[i]!=0)
+        if(Set[i]>1)
         {
-            major = Counter[i];
-            PrintOut = i;
+            max=i;
         }
     }
-    printf("The maximum repeating number is : %d\n",Set[PrintOut]);
+    printf("The maximum repeating number is : %d\n",max);
 
     return 0;
 }
