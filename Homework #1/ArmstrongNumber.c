@@ -1,4 +1,5 @@
 #include <stdio.h>
+//You can input more than 3 digits.
 //Functions
 int Find_N(int n)
 {
